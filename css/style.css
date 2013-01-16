@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'Monda';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Monda Regular'), local('Monda-Regular'), url(http://themes.googleusercontent.com/static/fonts/monda/v1/sk05J8GA1NvUxDnk43EgAQ.woff) format('woff');
+}
+
+
+@font-face {
+  font-family: 'Julius Sans One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Julius Sans One'), local('JuliusSansOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/juliussansone/v1/iU65JP9acQHPDLkdalCF7q3fkYX5z1QtDUdIWoaaD_k.woff) format('woff');
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 2% 0 0;
+	padding: 0;
+	background: #000;
+}
+
+.wrapper {
+	width: 100%;
+	overflow: auto;
+}
+
+.col {
+	float: left;
+	margin: 0;
+}
+
+.col_4 {
+	width: 33%;
+}
+
+.col_8 {
+	width: 56%;
+	padding: 0 5%;
+}
+
+.stretchy {
+	display: block;
+	width: 100%;
+}
+
+h1 {
+	color: #fff;
+	font-size: 4em;
+	margin: 0;
+	padding: 0;
+	font-family: 'Julius Sans One';
+	font-weight: 400;
+}
+
+label {
+	color: #eee;
+	font-family: 'Monda';
+	padding-right: 5%;
+}
+
+.desc {
+	color: #fff;
+  font-family: 'Monda';
+  border: 1px solid #333;
+  border-left: 0;
+  border-right: 0;
+  margin: 5px 0 5%;
+  padding: 5px;
+  background: #111;
+}
+
+#results {
+	color: #aaa;
+	font-size: 1.1em;
+	font-family: 'Monda';
+	line-height: 1.53em;
+	padding: 5px 20px;
+	background: #111;
+	border: 1px solid #333;
+  border-left: 0;
+  border-right: 0;
+	margin: 10px 0;
+	box-shadow: inset 0 0 5px #000;
+}
+
+.copyright {
+	color: #555;
+	font-family: 'Monda';
+	padding: 5px;
+}
+
+.copyright a {
+	color: #886;
+}
