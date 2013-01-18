@@ -1,3 +1,15 @@
+var _gaq = _gaq || [];
+_gaq.push([ '_setAccount', 'UA-15090706-1' ]);
+_gaq.push([ '_trackPageview' ]);
+(function() {
+	var ga = document.createElement('script');
+	ga.type = 'text/javascript';
+	ga.async = true;
+	ga.src = 'https://ssl.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(ga, s);
+})();
+
 var worker = new Worker("js/wordgen.js");
 var out = document.querySelector("#results");
 var paragraphCount = document.querySelector("#paragraphCount");
@@ -10,7 +22,10 @@ function setResults(e) {
 }
 
 function tupacsumMore(len) {
-	worker.postMessage({len : len, startWith: startWithIt()});
+	worker.postMessage({
+		len : len,
+		startWith : startWithIt()
+	});
 }
 
 function getParagraphCount() {
@@ -25,6 +40,20 @@ function updateTupacsum() {
 	tupacsumMore(getParagraphCount());
 }
 
-paragraphCount.addEventListener("change", updateTupacsum);
-startWith.addEventListener("change", updateTupacsum);
+function updateCount() {
+	var count = parseInt(getParagraphCount());
+	_gaq.push([ '_trackEvent', 'Tupacsum', 'Paragraph Count',
+			'Settings Changed', count, false ]);
+	updateTupacsum();
+}
+
+function updateStartWith() {
+	var startWith = startWithIt() ? 1 : 0;
+	_gaq.push([ '_trackEvent', 'Tupacsum', 'Start With', 'Settings Changed',
+			startWith, false ]);
+	updateTupacsum();
+}
+
+paragraphCount.addEventListener("change", updateCount);
+startWith.addEventListener("change", updateStartWith);
 updateTupacsum();
